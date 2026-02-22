@@ -33,8 +33,8 @@
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 28px;
-      font-size: 1rem;
+      gap: 24px; /* slightly reduced */
+      font-size: 0.95rem; /* smaller font */
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
     .nav-left a, .dropdown-toggle {
@@ -43,7 +43,7 @@
       font-weight: 500;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px; /* smaller gap */
       transition: all 0.2s ease;
       cursor: pointer;
     }
@@ -52,8 +52,8 @@
       text-shadow: 0 0 6px rgba(255,255,255,0.15);
     }
     .nav-left img, .dropdown-toggle img {
-      width: 20px;
-      height: 20px;
+      width: 18px; /* smaller icons */
+      height: 18px;
       filter: brightness(1.3);
     }
     .dropdown {
@@ -159,13 +159,13 @@
     }
     .suggestion-title { font-weight: 500; color: #4ac7c7; }
     .suggestion-excerpt { font-size: 13px; color: #999; margin-top: 3px; }
-    /* Header - slightly bigger but brighter & smaller than before */
+    /* Header - brighter + slightly smaller */
     header {
       position: relative;
       border-bottom: 1px solid #333;
-      padding: 50px 20px 40px; /* balanced */
+      padding: 50px 20px 40px;
       text-align: center;
-      min-height: 340px; /* slightly smaller than previous request */
+      min-height: 340px; /* slightly smaller */
       background: #000;
       overflow: hidden;
     }
@@ -174,13 +174,13 @@
       position: absolute;
       inset: 0;
       background: url("https://github.com/hamelal/hamelal/blob/main/Index%20-%20Header/Islamic%20books.jpg?raw=true") center/cover no-repeat;
-      opacity: 0.18; /* much brighter */
+      opacity: 0.20; /* brighter */
     }
     header::after {
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.25); /* lighter overlay */
+      background: rgba(0,0,0,0.15); /* much lighter overlay */
       z-index: 1;
     }
     .header-inner {
@@ -273,7 +273,7 @@
       font-size: 13.5px;
       color: #aaa;
       margin-bottom: 10px;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, sans-serif; /* clean default font */
     }
     .article-meta img { width: 14px; filter: brightness(1.4); }
     aside {
@@ -402,7 +402,7 @@
             Manthumat recitation
           </a>
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/4324764.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/book-xxl.png" alt="">
             Qur'an Recitation
           </a>
           <a href="#" class="dropdown-item">
@@ -449,8 +449,6 @@
       <h3>Navigation</h3>
       <div class="nav-item">Home</div>
       <div class="nav-item">Articles</div>
-      <h3>Recent Articles</h3>
-      <div id="recentArticles"></div>
     </aside>
   </div>
 
