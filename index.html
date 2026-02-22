@@ -34,8 +34,8 @@
     .nav-left {
       display: flex;
       align-items: center;
-      gap: 16px;
-      font-size: 0.95rem;
+      gap: 24px;
+      font-size: 1rem;
     }
     .nav-left a {
       color: #ccc;
@@ -110,13 +110,13 @@
     .suggestion-item:hover { background: #2a2a2a; }
     .suggestion-title { font-weight: 500; color: #4ac7c7; }
     .suggestion-excerpt { font-size: 13px; color: #999; margin-top: 3px; }
-    /* Header with background image + dark overlay */
+    /* Header - made smaller */
     header {
       position: relative;
       border-bottom: 1px solid #333;
-      padding: 60px 20px 40px;
+      padding: 40px 20px 30px; /* reduced padding */
       text-align: center;
-      min-height: 400px;
+      min-height: 280px; /* smaller height */
       background: #000;
       overflow: hidden;
     }
@@ -144,10 +144,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 24px;
+      gap: 20px; /* slightly reduced gap */
     }
     .header-title img {
-      width: 280px;
+      width: 220px; /* smaller logo */
       border-radius: 8px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.7);
     }
@@ -282,8 +282,8 @@
     }
     @media (max-width: 860px) {
       .container { grid-template-columns: 1fr; }
-      .topbar { flex-wrap: wrap; gap: 12px; justify-content: center; }
-      .nav-left { flex-wrap: wrap; justify-content: center; gap: 12px; font-size: 0.9rem; }
+      .header-title img { width: 180px; }
+      .nav-left { flex-wrap: wrap; gap: 16px; font-size: 0.9rem; justify-content: center; }
     }
   </style>
 </head>
@@ -292,11 +292,6 @@
     <div class="nav-left">
       <a href="#">Home</a>
       <a href="#">Articles</a>
-      <a href="#">Library</a>
-      <a href="#">ʿAqīdah</a>
-      <a href="#">Manhaj</a>
-      <a href="#">Fiqh</a>
-      <a href="#">Tazkiyah</a>
     </div>
     <div class="topbar-right">
       <div class="social-icons">
@@ -334,14 +329,8 @@
       <h3>Navigation</h3>
       <div class="nav-item">Home</div>
       <div class="nav-item">Articles</div>
-      <div class="nav-item">Library</div>
       <h3>Recent Articles</h3>
       <div id="recentArticles"></div>
-      <h3>Topics</h3>
-      <div class="nav-item">ʿAqīdah</div>
-      <div class="nav-item">Manhaj</div>
-      <div class="nav-item">Fiqh</div>
-      <div class="nav-item">Tazkiyah</div>
     </aside>
   </div>
 
@@ -352,8 +341,6 @@
   <div id="backToTop" title="Back to top">↑</div>
 
   <script>
-    // Removed Hijri function completely
-
     let articlesData = [];
     fetch("/articles.json")
       .then(r => r.json())
@@ -361,10 +348,6 @@
         articlesData = d;
         renderArticles(d);
         renderRecent(d);
-      })
-      .catch(() => {
-        // Optional: fallback message if JSON fails
-        document.getElementById("articlesList").innerHTML = "<p style='text-align:center; color:#888;'>No articles loaded yet.</p>";
       });
 
     function hijriDate(g) {
