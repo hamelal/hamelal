@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>hameela Al-Huda - حامل الهداة</title>
+  <title>Hamelaa Al-Hudaa | حامل الهداة</title>
   <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cormorant+Garamond&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -61,10 +61,11 @@
     .dropdown {
       position: relative;
     }
-    .dropdown-menu, .search-suggestions {
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .dropdown-menu {
       display: none;
-      opacity: 0;
-      transform: translateY(12px) scale(0.96);
       position: absolute;
       top: 100%;
       left: 0;
@@ -75,30 +76,28 @@
       box-shadow: 0 6px 16px rgba(0,0,0,0.6);
       z-index: 999;
       margin-top: 8px;
+      opacity: 0;
+      transform: translateY(8px);
       transition: opacity 0.3s ease, transform 0.3s ease;
     }
-    .dropdown:hover .dropdown-menu, .search-area:hover .search-suggestions {
-      display: block;
+    .dropdown:hover .dropdown-menu {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
     }
-    .dropdown-item, .suggestion-item {
+    .dropdown-item {
       padding: 10px 16px;
       color: #ccc;
-      cursor: pointer;
-      transition: all 0.2s ease;
+      text-decoration: none;
       display: flex;
       align-items: center;
       gap: 10px;
+      transition: all 0.2s ease;
     }
-    .dropdown-item:hover, .suggestion-item:hover {
+    .dropdown-item:hover {
       background: #222;
+      color: #fff;
     }
-    .dropdown-item:active, .suggestion-item:active {
-      transform: scale(0.97);
-      background: #2a2a2a;
-    }
-    .dropdown-item img, .suggestion-item img {
+    .dropdown-item img {
       width: 18px;
       height: 18px;
       filter: brightness(1.3);
@@ -109,41 +108,89 @@
       gap: 14px;
     }
     .search-area {
+      display: flex;
+      align-items: center;
+      gap: 0;
       position: relative;
+    }
+    .search-box {
+      flex: 1;
     }
     .search-box input {
       width: 240px;
       padding: 8px 12px;
-      border-radius: 8px;
+      border-radius: 8px 0 0 8px;
       border: 1px solid #444;
+      border-right: none;
       background: #1a1a1a;
       color: #ddd;
       transition: width 0.35s ease, box-shadow 0.3s;
     }
-    .search-box input:focus,
-    .search-box:hover input {
+    .search-box input:focus {
       width: 320px;
       box-shadow: 0 0 0 3px rgba(255,255,255,0.08);
       outline: none;
     }
     .search-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
+      width: 40px;
+      height: 36px;
+      border-radius: 0 8px 8px 0;
       background: #222;
       border: 1px solid #444;
+      border-left: none;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
+      transition: background 0.2s ease;
     }
-    .search-icon img { width: 17px; filter: brightness(1.4); }
+    .search-icon:hover {
+      background: #2a2a2a;
+    }
+    .search-icon img { width: 18px; filter: brightness(1.4); }
+    .search-suggestions {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #1e1e1e;
+      border: 1px solid #444;
+      border-radius: 8px;
+      margin-top: 4px;
+      max-height: 300px;
+      overflow-y: auto;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.6);
+      z-index: 999;
+      display: none;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .search-area:hover .search-suggestions,
+    .search-box input:focus + .search-suggestions {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .suggestion-item {
+      padding: 10px 14px;
+      cursor: pointer;
+      border-bottom: 1px solid #333;
+      color: #ccc;
+      transition: all 0.2s ease;
+    }
+    .suggestion-item:hover {
+      background: #2a2a2a;
+      box-shadow: inset 0 0 8px rgba(255,255,255,0.06);
+    }
+    .suggestion-title { font-weight: 500; color: #4ac7c7; }
+    .suggestion-excerpt { font-size: 13px; color: #999; margin-top: 3px; }
     header {
       position: relative;
       border-bottom: 1px solid #333;
       padding: 45px 20px 35px;
       text-align: center;
-      min-height: 280px; /* slightly smaller to fit icon better */
+      min-height: 280px;
       background: #000;
       overflow: hidden;
     }
@@ -158,7 +205,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: rgba(0,0,0,0.12); /* even brighter */
+      background: rgba(0,0,0,0.12);
       z-index: 1;
     }
     .header-inner {
