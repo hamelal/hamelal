@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>حامل الهداة</title>
-  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/download.png">
+  <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/download.png">
   <link href="https://fonts.googleapis.com/css2?family=Amiri&family=Cormorant+Garamond&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -127,7 +127,7 @@
       gap: 14px;
     }
 
-    /* 90s Skeuomorphic Tokenfield + Filter Icon */
+    /* 90s Skeuomorphic Tokenfield */
     .search-area {
       position: relative;
     }
@@ -234,6 +234,7 @@
       gap: 8px;
       cursor: pointer;
       white-space: nowrap;
+      color: #000;
     }
     .chip-dropdown-item:hover {
       background: #000080;
@@ -292,6 +293,7 @@
       gap: 8px;
       cursor: pointer;
       font-size: 13px;
+      color: #000;
     }
     .filter-menu-item:hover {
       background: #000080;
@@ -300,26 +302,6 @@
     .filter-menu-item img {
       width: 16px;
       height: 16px;
-    }
-
-    #filterDescription {
-      position: absolute;
-      top: 100%;
-      right: 0;
-      margin-top: 8px;
-      background: #222;
-      color: #eee;
-      padding: 10px 14px;
-      border-radius: 6px;
-      border: 1px solid #444;
-      max-width: 340px;
-      font-size: 0.9rem;
-      z-index: 102;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.6);
-      display: none;
-    }
-    #filterDescription.visible {
-      display: block;
     }
 
     /* Hide old search elements */
@@ -340,7 +322,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url("https://github.com/hamelal/hamelal/blob/main/Index%20-%20Header/Islamic%20books.jpg?raw=true") center/cover no-repeat;
+      background: url("https://raw.githubusercontent.com/hamelal/hamelal/main/Index%20-%20Header/Islamic%20books.jpg") center/cover no-repeat;
       opacity: 0.24;
     }
     header::after {
@@ -584,21 +566,21 @@
 <body>
   <div class="topbar" id="topbar">
     <div class="nav-left">
-      <a href="#"><img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/home-page-white-icon.webp" alt="">Home</a>
-      <a href="#"><img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/report-3-xxl.png" alt="">Articles</a>
+      <a href="#"><img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/home-page-white-icon.webp" alt="">Home</a>
+      <a href="#"><img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/report-3-xxl.png" alt="">Articles</a>
       <div class="dropdown">
         <input type="checkbox" id="dd-lessons" class="dropdown-checkbox" hidden>
         <label for="dd-lessons" class="dropdown-toggle">
-          <img src="https://github.com/hamelal/hamelal.github.io/blob/main/articles/book-stack-xxl.png?raw=true" alt="">
+          <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/book-stack-xxl.png" alt="">
           Lesson & Studies
         </label>
         <div class="dropdown-menu">
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/books-xxl.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/books-xxl.png" alt="">
             Book library
           </a>
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/folder-7-xxl.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/folder-7-xxl.png" alt="">
             Benefits Playlist
           </a>
         </div>
@@ -606,20 +588,20 @@
       <div class="dropdown">
         <input type="checkbox" id="dd-excerpts" class="dropdown-checkbox" hidden>
         <label for="dd-excerpts" class="dropdown-toggle">
-          <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/4324764.png" alt="">
+          <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/4324764.png" alt="">
           Excerpts of Knowledge
         </label>
         <div class="dropdown-menu">
           <a href="#" class="dropdown-item">
-            <img src="https://github.com/hamelal/hamelal.github.io/blob/main/articles/4324764.png?raw=true" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/4324764.png" alt="">
             Gems of the Salaf & Ulamas
           </a>
           <a href="#" class="dropdown-item">
-            <img src="https://github.com/hamelal/hamelal.github.io/blob/main/articles/book-xxl.png?raw=true" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/book-xxl.png" alt="">
             Books excerpt & Notes
           </a>
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/microphone-xxl.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/microphone-xxl.png" alt="">
             Recording Transcription
           </a>
         </div>
@@ -627,24 +609,24 @@
       <div class="dropdown">
         <input type="checkbox" id="dd-audios" class="dropdown-checkbox" hidden>
         <label for="dd-audios" class="dropdown-toggle">
-          <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/microphone-xxl.png" alt="">
+          <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/microphone-xxl.png" alt="">
           Audios
         </label>
         <div class="dropdown-menu">
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/books-xxl.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/books-xxl.png" alt="">
             Book reading/recitation
           </a>
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/4324764.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/4324764.png" alt="">
             Manthumat recitation
           </a>
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/book-xxl.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/book-xxl.png" alt="">
             Qur'an Recitation
           </a>
           <a href="#" class="dropdown-item">
-            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/headphones-3-xxl.png" alt="">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/headphones-3-xxl.png" alt="">
             Nasheed & Poetry
           </a>
         </div>
@@ -672,28 +654,22 @@
           <div class="tokenfield" id="tokenfield">
             <input type="text" class="token-input" placeholder="Search or add filters..." id="tokenInput">
           </div>
-
           <div class="filter-icon-wrapper" id="filterToggle">
-            <img src="https://github.com/hamelal/hamelal.github.io/blob/main/articles/empty-filter-xxl.png?raw=true" alt="Filter" class="filter-icon">
+            <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/empty-filter-xxl.png" alt="Filter" class="filter-icon">
           </div>
-
           <div class="filter-menu" id="filterMenu">
             <div class="filter-menu-item" data-category="Lesson & Studies">
-              <img src="https://github.com/hamelal/hamelal.github.io/blob/main/articles/book-stack-xxl.png?raw=true" alt="">
+              <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/book-stack-xxl.png" alt="">
               Lesson & Studies
             </div>
             <div class="filter-menu-item" data-category="Excerpts of Knowledge">
-              <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/4324764.png" alt="">
+              <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/4324764.png" alt="">
               Excerpts of Knowledge
             </div>
             <div class="filter-menu-item" data-category="Audios">
-              <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/microphone-xxl.png" alt="">
+              <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/microphone-xxl.png" alt="">
               Audios
             </div>
-          </div>
-
-          <div id="filterDescription">
-            When you select a navigation option (like 'Book library' or 'Gems of the Salaf & Ulamas'), the chip will appear in the search bar. If that category has sub-options, a dropdown arrow (▼) will show on the left of the chip — click it to see and choose more specific filters.
           </div>
         </div>
       </div>
@@ -703,7 +679,7 @@
   <header>
     <div class="header-inner">
       <div class="header-title" id="headerTitle">
-        <img src="https://raw.githubusercontent.com/hamelal/hamelal/refs/heads/main/Index%20-%20Header/hamelal.png" alt="حامل الهداة">
+        <img src="https://raw.githubusercontent.com/hamelal/hamelal/main/Index%20-%20Header/hamelal.png" alt="حامل الهداة">
         <div class="site-subtitle">
           Islamic books – Benefits from the Salaf – Audio lessons – Articles – Excerpts from the words of the scholars
         </div>
@@ -713,7 +689,7 @@
 
   <div class="container">
     <main>
-      <h2>Recommended</h2>
+      <h2>Recommended Posts</h2>
       <div id="articlesList"></div>
     </main>
     <aside>
@@ -736,7 +712,7 @@
   </footer>
 
   <div id="backToTop" title="Back to top">
-    <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/arrow-up-6-xxl.png" alt="Back to top">
+    <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/arrow-up-6-xxl.png" alt="Back to top">
   </div>
 
   <script>
@@ -746,29 +722,29 @@
         header.classList.add('animate-on-load');
       }, 300);
 
-      // ─── 90s Skeuomorphic Tokenfield Logic ──────────────────────────────────────
+      // ─── 90s Skeuomorphic Tokenfield ────────────────────────────────────────
       const tokenfield = document.getElementById('tokenfield');
-      const tokenInput  = document.getElementById('tokenInput');
+      const tokenInput = document.getElementById('tokenInput');
 
       const categorySubmenus = {
         "lesson & studies": [
-          { name: "Book library",        icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/books-xxl.png",        href: "#" },
-          { name: "Benefits Playlist",   icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/folder-7-xxl.png",     href: "#" }
+          { name: "Book library", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/books-xxl.png" },
+          { name: "Benefits Playlist", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/folder-7-xxl.png" }
         ],
         "excerpts of knowledge": [
-          { name: "Gems of the Salaf & Ulamas", icon: "https://github.com/hamelal/hamelal.github.io/blob/main/articles/4324764.png?raw=true", href: "#" },
-          { name: "Books excerpt & Notes",      icon: "https://github.com/hamelal/hamelal.github.io/blob/main/articles/book-xxl.png?raw=true",      href: "#" },
-          { name: "Recording Transcription",    icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/microphone-xxl.png", href: "#" }
+          { name: "Gems of the Salaf & Ulamas", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/4324764.png" },
+          { name: "Books excerpt & Notes", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/book-xxl.png" },
+          { name: "Recording Transcription", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/microphone-xxl.png" }
         ],
         "audios": [
-          { name: "Book reading/recitation",    icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/books-xxl.png", href: "#" },
-          { name: "Manthumat recitation",       icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/4324764.png", href: "#" },
-          { name: "Qur'an Recitation",          icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/book-xxl.png", href: "#" },
-          { name: "Nasheed & Poetry",           icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/refs/heads/main/articles/headphones-3-xxl.png", href: "#" }
+          { name: "Book reading/recitation", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/books-xxl.png" },
+          { name: "Manthumat recitation", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/4324764.png" },
+          { name: "Qur'an Recitation", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/book-xxl.png" },
+          { name: "Nasheed & Poetry", icon: "https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/headphones-3-xxl.png" }
         ]
       };
 
-      function addFilterChip(name, icon = null, href = "#") {
+      function addFilterChip(name, icon = null) {
         const lowerName = name.toLowerCase().trim();
         const hasSubmenu = !!categorySubmenus[lowerName];
 
@@ -777,16 +753,16 @@
         chip.innerHTML = `
           ${hasSubmenu ? `<span class="chip-arrow">▼</span>` : ''}
           ${icon ? `<img src="${icon}" alt="" style="width:16px;height:16px;">` : ''}
-          <span class="chip-text" data-href="${href}">${name}</span>
+          <span class="chip-text">${name}</span>
           <span class="chip-remove">×</span>
           ${hasSubmenu ? `
             <div class="chip-dropdown">
-              ${categorySubmenus[lowerName]?.map(sub => `
-                <div class="chip-dropdown-item" data-subfilter="${sub.name}" data-href="${sub.href || '#'}">
-                  ${sub.icon ? `<img src="${sub.icon}" alt="">` : ''}
+              ${categorySubmenus[lowerName].map(sub => `
+                <div class="chip-dropdown-item">
+                  <img src="${sub.icon}" alt="">
                   ${sub.name}
                 </div>
-              `).join('') || '<div class="chip-dropdown-item">No sub-options</div>'}
+              `).join('')}
             </div>
           ` : ''}
         `;
@@ -797,7 +773,7 @@
           chip.remove();
         };
 
-        // Arrow toggle submenu
+        // Toggle sub-menu
         const arrow = chip.querySelector('.chip-arrow');
         if (arrow) {
           arrow.onclick = (e) => {
@@ -808,88 +784,42 @@
           };
         }
 
-        // Click chip text → go to category page/folder
-        chip.querySelector('.chip-text').onclick = (e) => {
-          e.stopPropagation();
-          const link = e.currentTarget.dataset.href;
-          if (link && link !== '#') {
-            window.location.href = link;
-          }
-        };
-
-        // Sub-item click → add new chip
-        chip.querySelectorAll('.chip-dropdown-item').forEach(item => {
-          item.onclick = (e) => {
-            e.stopPropagation();
-            const subName = item.dataset.subfilter;
-            const subHref = item.dataset.href;
-            if (subName) {
-              addFilterChip(subName, item.querySelector('img')?.src, subHref);
-            }
-            chip.classList.remove('active');
-          };
-        });
-
-        const closeMenus = (e) => {
-          if (!chip.contains(e.target)) chip.classList.remove('active');
-        };
-        document.addEventListener('click', closeMenus);
-
         tokenfield.insertBefore(chip, tokenInput);
         tokenInput.value = '';
         tokenInput.focus();
       }
 
-      // Add chip when clicking nav dropdown items
+      // ─── FIXED: Add chip when clicking ANY navigation dropdown item ────────────
       document.querySelectorAll('.dropdown-item').forEach(item => {
-        const originalClick = item.onclick;
-        item.onclick = (e) => {
-          // e.preventDefault();   // uncomment if you don't want navigation
-          const text = item.textContent.trim();
-          const iconSrc = item.querySelector('img')?.src;
-          const parentToggle = item.closest('.dropdown-menu')?.previousElementSibling;
-          const parentName = parentToggle ? parentToggle.textContent.trim().toLowerCase() : '';
-
-          addFilterChip(text, iconSrc, "#");
-
-          if (originalClick) originalClick(e);
-        };
+        item.addEventListener('click', function(e) {
+          // Optional: e.preventDefault();  // remove if you want links to work too
+          const text = this.textContent.trim();
+          const iconSrc = this.querySelector('img')?.src || null;
+          addFilterChip(text, iconSrc);
+        });
       });
 
-      // Typing + Enter for custom chips (main categories get arrow if matched)
+      // Allow custom chips via typing + Enter
       tokenInput.addEventListener('keydown', e => {
         if (e.key === 'Enter' && tokenInput.value.trim()) {
           e.preventDefault();
-          const text = tokenInput.value.trim();
-          addFilterChip(text, null, "#");
+          addFilterChip(tokenInput.value.trim());
         }
       });
 
-      // Filter icon + first-time tooltip
+      // Filter icon → open main category selector
       const filterToggle = document.getElementById('filterToggle');
-      const filterMenu   = document.getElementById('filterMenu');
-      const filterDesc   = document.getElementById('filterDescription');
+      const filterMenu = document.getElementById('filterMenu');
 
       if (filterToggle && filterMenu) {
         filterToggle.addEventListener('click', (e) => {
           e.stopPropagation();
           filterMenu.classList.toggle('visible');
-
-          // Show description only the first time
-          if (!localStorage.getItem('filterTipShown')) {
-            filterDesc.classList.add('visible');
-            localStorage.setItem('filterTipShown', 'true');
-            // Auto-hide after 12 seconds
-            setTimeout(() => {
-              filterDesc.classList.remove('visible');
-            }, 12000);
-          }
         });
 
         document.addEventListener('click', (e) => {
-          if (!filterToggle.contains(e.target) && !filterMenu.contains(e.target) && !filterDesc.contains(e.target)) {
+          if (!filterToggle.contains(e.target) && !filterMenu.contains(e.target)) {
             filterMenu.classList.remove('visible');
-            filterDesc.classList.remove('visible');
           }
         });
 
@@ -897,114 +827,61 @@
           item.addEventListener('click', (e) => {
             e.stopPropagation();
             const categoryName = item.dataset.category;
-            const iconSrc = item.querySelector('img')?.src;
-            addFilterChip(categoryName, iconSrc, "#"); // ← replace "#" with real link
+            const iconSrc = item.querySelector('img')?.src || null;
+            addFilterChip(categoryName, iconSrc);
             filterMenu.classList.remove('visible');
           });
         });
       }
 
-      // ─── Original article loading logic ────────────────────────────────────────
-      let articlesData = [];
-      let tagRules = [];
-
-      fetch("/tags.json")
-        .then(r => r.ok ? r.json() : Promise.reject("tags.json not found"))
-        .then(rules => {
-          tagRules = rules || [];
-          return fetch("/articles.json");
+      // ─── Articles from articles.json ────────────────────────────────────────
+      fetch("/articles.json")
+        .then(r => {
+          if (!r.ok) throw new Error("articles.json not found or invalid");
+          return r.json();
         })
-        .then(r => r.json())
         .then(articles => {
-          articlesData = articles;
           renderArticles(articles);
         })
         .catch(err => {
-          console.error("Error loading data:", err);
-          const fallbackArticles = [
+          console.error(err);
+          const fallback = [
             {
-              title: "Treatise on Note-Taking & Memorization",
-              date: "2025-07-10",
-              excerpt: "How to benefit from books by organizing notes...",
-              file: "/articles/taking-notes.html"
+              title: "Fallback Post",
+              date: "2025-01-01",
+              excerpt: "articles.json is missing or has error. Add it to see real posts.",
+              file: "#"
             }
           ];
-          renderArticles(fallbackArticles);
-          document.getElementById("articlesList").insertAdjacentHTML('afterbegin',
-            '<p style="color:#777; text-align:center; margin-bottom:16px; font-size:0.95rem;">(Showing demo articles – add valid articles.json & tags.json to see real content)</p>'
-          );
+          renderArticles(fallback);
         });
-
-      function getAutoTags(text) {
-        if (!text || !tagRules.length) return [];
-        const lower = text.toLowerCase();
-        const found = new Set();
-        tagRules.forEach(rule => {
-          const keywords = rule.keywords || [rule.keyword || ""];
-          if (keywords.some(kw => kw && lower.includes(kw.toLowerCase()))) {
-            found.add(rule.tag);
-          }
-        });
-        return Array.from(found).map(tag => {
-          const rule = tagRules.find(r => r.tag === tag);
-          return { tag, icon: rule?.icon || null };
-        });
-      }
 
       function renderArticles(list) {
         const container = document.getElementById("articlesList");
         container.innerHTML = "";
-        list
-          .filter(a => a && a.title && a.date && a.excerpt)
-          .sort((a,b) => new Date(b.date) - new Date(a.date))
-          .forEach(a => {
-            const div = document.createElement("div");
-            div.className = "article";
-            const searchText = (a.title + " " + (a.excerpt || "")).trim();
-            const tags = getAutoTags(searchText);
-            let tagsHTML = tags.length ? '<div class="article-tags">' + tags.map(t => `
-              <span class="article-tag">
-                ${t.icon ? `<img src="${t.icon}" alt="">` : ""}
-                ${t.tag}
-              </span>
-            `).join('') + '</div>' : '';
-
-            div.innerHTML = `
-              <div class="article-title">${a.title}</div>
-              <div class="article-meta">
-                <img src="https://raw.githubusercontent.com/millahibrahim148-ops/almaymunah/refs/heads/main/icon%20image/2226-calendar.png" width="14">
-                <span>${formatGregorian(a.date)}</span>
-              </div>
-              <p>${a.excerpt}</p>
-              ${tagsHTML}
-            `;
-            const url = a.file || '#';
-            div.style.cursor = url !== '#' ? "pointer" : "default";
-            div.addEventListener("click", () => { if (url !== '#') window.location.href = url; });
-            container.appendChild(div);
-          });
-        if (!list.length) {
-          container.innerHTML = '<p style="color:#777; text-align:center; padding:40px 0;">No articles available yet.</p>';
-        }
+        list.forEach(a => {
+          const div = document.createElement("div");
+          div.className = "article";
+          div.innerHTML = `
+            <div class="article-title">${a.title || "No title"}</div>
+            <div class="article-meta">
+              <img src="https://raw.githubusercontent.com/millahibrahim148-ops/almaymunah/refs/heads/main/icon%20image/2226-calendar.png" width="14">
+              <span>${a.date || "No date"}</span>
+            </div>
+            <p>${a.excerpt || ""}</p>
+          `;
+          if (a.file && a.file !== "#") {
+            div.style.cursor = "pointer";
+            div.onclick = () => window.location = a.file;
+          }
+          container.appendChild(div);
+        });
       }
 
-      function formatGregorian(dateStr) {
-        if (!dateStr) return "Unknown date";
-        const date = new Date(dateStr);
-        if (isNaN(date)) return "Invalid date";
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const year = date.getFullYear();
-        return `${day}-${month}-${year}`;
-      }
-
+      // Back to top
       window.addEventListener("scroll", () => {
-        const btn = document.getElementById("backToTop");
-        btn.classList.toggle("visible", window.scrollY > 400);
+        document.getElementById("backToTop").classList.toggle("visible", window.scrollY > 400);
       });
-      document.getElementById("backToTop").onclick = () => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      };
     });
   </script>
 </body>
