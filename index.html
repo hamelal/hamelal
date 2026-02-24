@@ -767,13 +767,11 @@
           ` : ''}
         `;
 
-        // Remove chip
         chip.querySelector('.chip-remove').onclick = (e) => {
           e.stopPropagation();
           chip.remove();
         };
 
-        // Toggle sub-menu
         const arrow = chip.querySelector('.chip-arrow');
         if (arrow) {
           arrow.onclick = (e) => {
@@ -789,25 +787,40 @@
         tokenInput.focus();
       }
 
-      // ─── FIXED: Add chip when clicking ANY navigation dropdown item ────────────
+      // ─── Add chip from navigation dropdown items ─────────────────────────────
       document.querySelectorAll('.dropdown-item').forEach(item => {
         item.addEventListener('click', function(e) {
-          // Optional: e.preventDefault();  // remove if you want links to work too
+          // e.preventDefault(); // uncomment if you don't want default link behavior
           const text = this.textContent.trim();
           const iconSrc = this.querySelector('img')?.src || null;
           addFilterChip(text, iconSrc);
         });
       });
 
-      // Allow custom chips via typing + Enter
+      // ─── Enter key behavior ──────────────────────────────────────────────────
       tokenInput.addEventListener('keydown', e => {
-        if (e.key === 'Enter' && tokenInput.value.trim()) {
+        if (e.key === 'Enter') {
           e.preventDefault();
-          addFilterChip(tokenInput.value.trim());
+          const value = tokenInput.value.trim();
+
+          // If there are NO chips → redirect to search.html
+          if (tokenfield.querySelectorAll('.chip').length === 0) {
+            if (value) {
+              // Optional: pass the search term as query param
+              window.location.href = `search.html?q=${encodeURIComponent(value)}`;
+            } else {
+              window.location.href = 'search.html';
+            }
+          } 
+          // If there ARE chips → add the typed value as chip (or ignore)
+          else if (value) {
+            addFilterChip(value);
+          }
+          // If chips exist and no value typed → do nothing (or future: apply filters)
         }
       });
 
-      // Filter icon → open main category selector
+      // Filter icon opens main category selector
       const filterToggle = document.getElementById('filterToggle');
       const filterMenu = document.getElementById('filterMenu');
 
@@ -834,10 +847,10 @@
         });
       }
 
-      // ─── Articles from articles.json ────────────────────────────────────────
+      // ─── Load articles from articles.json ────────────────────────────────────
       fetch("/articles.json")
         .then(r => {
-          if (!r.ok) throw new Error("articles.json not found or invalid");
+          if (!r.ok) throw new Error("articles.json not found");
           return r.json();
         })
         .then(articles => {
@@ -845,15 +858,9 @@
         })
         .catch(err => {
           console.error(err);
-          const fallback = [
-            {
-              title: "Fallback Post",
-              date: "2025-01-01",
-              excerpt: "articles.json is missing or has error. Add it to see real posts.",
-              file: "#"
-            }
-          ];
-          renderArticles(fallback);
+          renderArticles([
+            { title: "Demo Post (articles.json missing)", date: "2025-01-01", excerpt: "Add articles.json to see real content", file: "#" }
+          ]);
         });
 
       function renderArticles(list) {
@@ -866,7 +873,7 @@
             <div class="article-title">${a.title || "No title"}</div>
             <div class="article-meta">
               <img src="https://raw.githubusercontent.com/millahibrahim148-ops/almaymunah/refs/heads/main/icon%20image/2226-calendar.png" width="14">
-              <span>${a.date || "No date"}</span>
+              <span>${a.date || ""}</span>
             </div>
             <p>${a.excerpt || ""}</p>
           `;
@@ -882,6 +889,9 @@
       window.addEventListener("scroll", () => {
         document.getElementById("backToTop").classList.toggle("visible", window.scrollY > 400);
       });
+      document.getElementById("backToTop").onclick = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
     });
   </script>
 </body>
