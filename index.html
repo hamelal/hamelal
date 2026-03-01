@@ -759,16 +759,16 @@
     <img src="https://raw.githubusercontent.com/hamelal/hamelal.github.io/main/articles/arrow-up-6-xxl.png" alt="Back to top">
   </div>
 
- <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('headerTitle');
   setTimeout(() => header.classList.add('animate-on-load'), 300);
 
   // ────────────────────────────────────────────────
-  // 1. Load articles once
+  // Load articles (still needed for on-page filtering via chips)
   // ────────────────────────────────────────────────
   let allArticles = [];
-  let currentArticles = []; // filtered view
+  let currentArticles = [];
 
   fetch("/articles.json")
     .then(r => r.ok ? r.json() : Promise.reject())
@@ -779,12 +779,9 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(() => {
       document.getElementById("articlesGrid").innerHTML =
-        "<p style='text-align:center; color:#777; padding:3rem 0;'>No articles loaded (articles.json missing or invalid)</p>";
+        "<p style='text-align:center; color:#777; padding:3rem 0;'>No articles loaded</p>";
     });
 
-  // ────────────────────────────────────────────────
-  // 2. Render function (used for both initial & filtered)
-  // ────────────────────────────────────────────────
   function renderArticles(articles) {
     const grid = document.getElementById("articlesGrid");
     const carouselInner = document.getElementById("carouselInner");
@@ -797,7 +794,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Featured carousel – first 3 (or less)
+    // Featured carousel (first 3)
     const featured = articles.slice(0, 3);
     featured.forEach(a => {
       const item = document.createElement("div");
@@ -817,28 +814,22 @@ document.addEventListener('DOMContentLoaded', () => {
       carouselInner.appendChild(item);
     });
 
-    // Carousel controls
+    // Carousel logic
     let currentIndex = 0;
-    const carouselItems = carouselInner.children;
-    const total = carouselItems.length;
-
+    const total = carouselInner.children.length;
     if (total > 0) {
       const prevBtn = document.getElementById("prevBtn");
       const nextBtn = document.getElementById("nextBtn");
-
       function showSlide(idx) {
         carouselInner.style.transform = `translateX(-${idx * 100}%)`;
         currentIndex = idx;
       }
-
       prevBtn.onclick = () => showSlide((currentIndex - 1 + total) % total);
       nextBtn.onclick = () => showSlide((currentIndex + 1) % total);
-
-      // Optional auto-slide
       setInterval(() => nextBtn.click(), 6000);
     }
 
-    // Rest of articles in grid
+    // Grid
     articles.slice(3).forEach(a => {
       const div = document.createElement("div");
       div.className = "article";
@@ -859,30 +850,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ────────────────────────────────────────────────
-  // 3. Real-time text search
-  // ────────────────────────────────────────────────
-  tokenInput.addEventListener("input", () => {
-    const q = tokenInput.value.trim().toLowerCase();
-
-    if (!q) {
-      currentArticles = [...allArticles];
-    } else {
-      currentArticles = allArticles.filter(a => {
-        const hay = [
-          (a.title   || "").toLowerCase(),
-          (a.excerpt || "").toLowerCase(),
-          (a.date    || "").toLowerCase(),
-          (a.category|| "").toLowerCase()
-        ].join(" ");
-        return hay.includes(q);
-      });
-    }
-
-    renderArticles(currentArticles);
-  });
-
-  // ────────────────────────────────────────────────
-  // 4. Chip / category filter (still works)
+  // On-page filtering via chips (still active)
   // ────────────────────────────────────────────────
   let selectedFilters = new Set();
 
@@ -905,17 +873,40 @@ document.addEventListener('DOMContentLoaded', () => {
   function runFilters() {
     currentArticles = allArticles.filter(a => {
       if (selectedFilters.size === 0) return true;
-
       for (const f of selectedFilters) {
-        if (a.category === f) return true;
-        if (a.tags?.includes(f)) return true;
+        if (a.category === f || a.tags?.includes(f)) return true;
       }
       return false;
     });
-
     renderArticles(currentArticles);
   }
 
+  // ────────────────────────────────────────────────
+  // ENTER KEY → redirect to /search.html?q=...
+  // ────────────────────────────────────────────────
+  tokenInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const q = tokenInput.value.trim();
+      if (!q && selectedFilters.size === 0) return; // nothing to search
+
+      // Build query string
+      let params = new URLSearchParams();
+      if (q) params.set("q", q);
+
+      // Add all active chips as categories/tags
+      if (selectedFilters.size > 0) {
+        params.set("filters", Array.from(selectedFilters).join(","));
+      }
+
+      const searchUrl = `/search.html?${params.toString()}`;
+      window.location.href = searchUrl;
+    }
+  });
+
+  // ────────────────────────────────────────────────
+  // Popup + chip logic (unchanged)
+  // ────────────────────────────────────────────────
   filterToggle.addEventListener('click', e => {
     e.stopPropagation();
     filterPopup.classList.toggle('active');
