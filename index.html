@@ -103,7 +103,7 @@
     }
     .social-icons img {
       width: 18px;
-      filter: brightness(0) invert(1);          /* makes icons white */
+      filter: brightness(0) invert(1);
     }
 
     .search-area {
@@ -177,7 +177,7 @@
     .chip .remove {
       cursor: pointer;
       font-weight: bold;
-      color: #ffffff;                    /* changed to white */
+      color: #ffffff;
       font-size: 1.4rem;
       line-height: 1;
       margin-left: 4px;
@@ -245,94 +245,82 @@
     .featured-carousel {
       position: relative;
       overflow: hidden;
-      border-radius: 16px;
-      margin-bottom: 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-      background: linear-gradient(135deg, #1a1a1a, #111);
-      min-height: 340px;
+      border: 1px solid #444;
+      border-radius: 6px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+      background: #1a1a1a;
+      min-height: 220px;               /* smaller height */
     }
-    .carousel-inner { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1); }
+
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+    }
+
     .carousel-item {
       min-width: 100%;
-      padding: 32px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      color: #eee;
+      padding: 20px 30px;              /* reduced padding */
+      background: linear-gradient(to bottom, #222, #1a1a1a);
     }
+
     .carousel-item .article-title {
       font-family: "Amiri", serif;
-      font-size: 2.1rem;
-      margin-bottom: 16px;
-      line-height: 1.3;
-      color: #f0f0f0;
+      font-size: 1.7rem;               /* smaller title */
+      margin-bottom: 10px;
+      color: #e0e0e0;
     }
+
     .carousel-item .article-meta {
-      font-size: 1rem;
-      color: #aaa;
-      margin-bottom: 20px;
+      font-size: 0.9rem;
+      color: #999;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .carousel-item .article-excerpt {
-      font-size: 1.15rem;
-      max-width: 720px;
-      margin: 0 auto 24px;
-      color: #ccc;
-      line-height: 1.7;
-    }
-    .carousel-item .read-more {
-      display: inline-flex;
-      align-items: center;
       gap: 8px;
-      padding: 12px 28px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid #555;
-      border-radius: 50px;
-      color: #ddd;
-      text-decoration: none;
-      transition: all 0.3s;
     }
-    .carousel-item .read-more:hover { background: rgba(255,255,255,0.15); color: white; }
+
+    .carousel-item .article-excerpt {
+      font-size: 1rem;                 /* smaller excerpt */
+      color: #ccc;
+      line-height: 1.55;
+      max-width: 720px;
+    }
 
     .carousel-controls {
       position: absolute;
-      inset: 0;
+      top: 50%;
+      left: 0;
+      right: 0;
+      transform: translateY(-50%);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      padding: 0 16px;
+      padding: 0 15px;
       pointer-events: none;
     }
+
     .carousel-btn {
-      background: rgba(0,0,0,0.5);
+      background: none;
       border: none;
-      color: #fff;
-      font-size: 3.5rem;
+      color: #888;
+      font-size: 2.8rem;               /* smaller arrows */
+      font-weight: bold;
       cursor: pointer;
-      padding: 12px 20px;
-      border-radius: 50%;
+      padding: 0 8px;
       pointer-events: auto;
+      transition: all 0.2s;
+      line-height: 1;
     }
-    .carousel-dots {
-      position: absolute;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
+
+    .carousel-btn:hover:not(:disabled) {
+      color: #ccc;
+      text-decoration: underline;
+      text-underline-offset: 6px;
     }
-    .carousel-dot {
-      width: 12px;
-      height: 12px;
-      background: #555;
-      border-radius: 50%;
-      cursor: pointer;
+
+    .carousel-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
     }
-    .carousel-dot.active { background: #aaa; transform: scale(1.3); }
 
     .articles-grid {
       display: grid;
@@ -346,11 +334,11 @@
       border: 1px solid #2a2a2a;
       transition: all 0.2s ease;
       cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
     }
     .article:hover {
       background: #222;
-      box-shadow: 0 4px 16px rgba(255,255,255,0.06);
-      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.6);
     }
     .article-title { color: #ccc; font-size: 21px; margin-bottom: 8px; }
     .article-meta {
@@ -387,8 +375,7 @@
     }
     .nav-item:hover {
       background: #222;
-      box-shadow: 0 4px 12px rgba(255,255,255,0.08);
-      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255,255,255,0.04);
     }
 
     footer {
@@ -620,10 +607,9 @@
       <div class="featured-carousel" id="featuredCarousel">
         <div class="carousel-inner" id="carouselInner"></div>
         <div class="carousel-controls">
-          <button class="carousel-btn prev" id="prevBtn">‹</button>
-          <button class="carousel-btn next" id="nextBtn">›</button>
+          <button class="carousel-btn prev" id="prevBtn">«</button>
+          <button class="carousel-btn next" id="nextBtn">»</button>
         </div>
-        <div class="carousel-dots" id="carouselDots"></div>
       </div>
       <div class="articles-grid" id="articlesGrid"></div>
     </main>
@@ -823,11 +809,9 @@
         const carouselInner = document.getElementById("carouselInner");
         const prevBtn = document.getElementById("prevBtn");
         const nextBtn = document.getElementById("nextBtn");
-        const dotsContainer = document.getElementById("carouselDots");
 
         grid.innerHTML = "";
         carouselInner.innerHTML = "";
-        dotsContainer.innerHTML = "";
 
         if (articles.length === 0) {
           grid.innerHTML = "<p style='text-align:center;color:#777;padding:3rem 0;'>No articles</p>";
@@ -836,8 +820,8 @@
           return;
         }
 
-        const featured = articles.slice(0, 4);
-        featured.forEach((a, index) => {
+        const featured = articles.slice(0, 3);
+        featured.forEach(a => {
           const item = document.createElement("div");
           item.className = "carousel-item";
           item.innerHTML = `
@@ -846,23 +830,10 @@
               <img src="https://raw.githubusercontent.com/millahibrahim148-ops/almaymunah/refs/heads/main/icon%20image/2226-calendar.png" alt="">
               <span>${a.date || ""}</span>
             </div>
-            <p class="article-excerpt">${a.excerpt || "Read this important benefit from the Salaf..."}</p>
-            <a class="read-more">Read More →</a>
+            <p class="article-excerpt">${a.excerpt || ""}</p>
           `;
-          if (a.file) {
-            item.querySelector('.read-more').href = a.file;
-            item.style.cursor = "pointer";
-            item.onclick = (e) => {
-              if (!e.target.closest('.read-more')) window.location = a.file;
-            };
-          }
+          if (a.file) item.onclick = () => window.location = a.file;
           carouselInner.appendChild(item);
-
-          const dot = document.createElement("div");
-          dot.className = "carousel-dot";
-          if (index === 0) dot.classList.add("active");
-          dot.onclick = () => showSlide(index);
-          dotsContainer.appendChild(dot);
         });
 
         let currentIndex = 0;
@@ -873,9 +844,6 @@
           currentIndex = idx;
           prevBtn.disabled = idx === 0;
           nextBtn.disabled = idx === total - 1;
-          document.querySelectorAll('.carousel-dot').forEach((d, i) => {
-            d.classList.toggle("active", i === idx);
-          });
         }
 
         prevBtn.onclick = () => { if (currentIndex > 0) showSlide(currentIndex - 1); };
@@ -884,26 +852,14 @@
         prevBtn.disabled = true;
         nextBtn.disabled = total <= 1;
 
-        let autoInterval;
         if (total > 1) {
-          autoInterval = setInterval(() => {
+          setInterval(() => {
             if (currentIndex < total - 1) showSlide(currentIndex + 1);
             else showSlide(0);
-          }, 8000);
+          }, 10000);
         }
 
-        const carousel = document.getElementById("featuredCarousel");
-        carousel.addEventListener("mouseenter", () => clearInterval(autoInterval));
-        carousel.addEventListener("mouseleave", () => {
-          if (total > 1) {
-            autoInterval = setInterval(() => {
-              if (currentIndex < total - 1) showSlide(currentIndex + 1);
-              else showSlide(0);
-            }, 8000);
-          }
-        });
-
-        articles.slice(4).forEach(a => {
+        articles.slice(3).forEach(a => {
           const div = document.createElement("div");
           div.className = "article";
           div.innerHTML = `
